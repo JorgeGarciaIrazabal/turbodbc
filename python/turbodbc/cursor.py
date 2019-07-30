@@ -331,8 +331,7 @@ class Cursor(object):
             rs = make_arrow_result_set(
                 self.impl.get_result_set(),
                 strings_as_dictionary,
-                adaptive_integers,
-                truncate_timestamps)
+                adaptive_integers)
             first_run = True
             while True:
                 table = rs.fetch_next_batch()
@@ -369,8 +368,7 @@ class Cursor(object):
             return make_arrow_result_set(
                     self.impl.get_result_set(),
                     strings_as_dictionary,
-                    adaptive_integers,
-                    truncate_timestamps).fetch_all()
+                    adaptive_integers).fetch_all()
         else:
             raise Error(_NO_ARROW_SUPPORT_MSG)
 

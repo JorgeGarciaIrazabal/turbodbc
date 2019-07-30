@@ -9,10 +9,10 @@ using turbodbc_arrow::arrow_result_set;
 namespace {
 
 arrow_result_set make_arrow_result_set(std::shared_ptr<turbodbc::result_sets::result_set> result_set_pointer,
-    bool strings_as_dictionary, bool adaptive_integers, bool truncate_timestamps)
+    bool strings_as_dictionary, bool adaptive_integers)
 {
     throw 1;
-	return arrow_result_set(*result_set_pointer, strings_as_dictionary, adaptive_integers, truncate_timestamps);
+	return arrow_result_set(*result_set_pointer, strings_as_dictionary, adaptive_integers, true);
 }
 
 void set_arrow_parameters(turbodbc::cursor & cursor, pybind11::object const & pyarrow_table)
